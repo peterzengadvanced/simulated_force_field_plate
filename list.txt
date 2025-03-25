@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+project(MagnetForcePlugin)
+
+find_package(gazebo REQUIRED)
+
+# C++11
+set (CMAKE_CXX_STANDARD 11)
+
+include_directories(${GAZEBO_INCLUDE_DIRS})
+link_directories(${GAZEBO_LIBRARY_DIRS})
+
+add_library(MagnetForcePlugin SHARED MagnetForcePlugin.cc)
+target_link_libraries(MagnetForcePlugin ${GAZEBO_LIBRARIES})
