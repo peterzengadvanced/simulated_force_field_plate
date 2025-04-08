@@ -18,7 +18,7 @@ namespace gazebo
       this->model = _model;
       this->world = _model->GetWorld();
 
-      // Optional SDF parameters
+      // some SDF parameters
       if (_sdf->HasElement("magnet_link_name"))
         this->magnetLinkName = _sdf->Get<std::string>("magnet_link_name");
       if (_sdf->HasElement("magnet_range"))
@@ -55,7 +55,7 @@ namespace gazebo
       auto models = this->world->Models();
       for (auto &m : models)
       {
-        // Skip our own magnet model
+        // Skip my own magnet model
         if (m->GetName() == this->model->GetName())
           continue;
 
